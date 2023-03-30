@@ -10,11 +10,12 @@ sudo apt-get install qttools5-dev libqt5x11extras5-dev libqt5svg5-dev qtxmlpatte
 sudo apt-get install python3-sklearn 
 sudo apt-get install libsqlite3-dev 
 sudo apt-get install gawk
+sudo apt-get install git
 ```
 
 ### Install Paraview
 
-First, go in the parent directory of where this repository (`MT-PGA`) is and run the following commands:
+First, go in the parent directory of where this repository (`MT-AE`) is and run the following commands:
 (replace the `4` in `make -j4` by the number of available cores on your system)
 
 ```bash
