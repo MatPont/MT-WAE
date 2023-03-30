@@ -15,7 +15,7 @@ sudo apt-get install git
 
 ### Install Paraview
 
-First, go in the parent directory of where this repository (`MT-AE`) is and run the following commands:
+First, go in the root of this repository (`MT-AE`) and run the following commands:
 (replace the `4` in `make -j4` by the number of available cores on your system)
 
 ```bash
@@ -33,6 +33,12 @@ Some warnings are expected when using the `make` command, they should not cause 
 
 ### Install Torch
 
+Go in the root of this repository (`MT-AE`) and run the following commands:
+
+```bash
+wget https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.13.1%2Bcpu.zip
+unzip libtorch-cxx11-abi-shared-with-deps-1.13.1+cpu.zip
+```
 
 ### Install TTK
 
@@ -41,7 +47,8 @@ Go in the `ttk-dev2` directory then run the following commands:
 
 ```bash
 mkdir build && cd build
-paraviewPath=`pwd`/../../../ttk-paraview/install/lib/cmake/paraview-5.10
+paraviewPath=`pwd`/../../ttk-paraview/install/lib/cmake/paraview-5.10
+torchPath=`pwd`/../../libtorch/share/cmake/Torch/
 cmake -DCMAKE_INSTALL_PREFIX=../install -DParaView_DIR=$paraviewPath ..
 make -j4
 make -j4 install
