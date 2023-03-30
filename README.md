@@ -30,6 +30,15 @@ make -j4 install
 
 Some warnings are expected when using the `make` command, they should not cause any problems.
 
+Stay in the build directory and set the environment variables:
+(replace `3.10` in `python3.10` by your version of python)
+
+```bash
+PV_PREFIX=`pwd`/../install
+export PATH=$PATH:$PV_PREFIX/bin
+export LD_LIBRARY_PATH=$PV_PREFIX/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=$PV_PREFIX/lib/python3.10/site-packages
+```
 
 ### Install Torch
 
@@ -49,13 +58,13 @@ Go in the `ttk-dev2` directory then run the following commands:
 mkdir build && cd build
 paraviewPath=`pwd`/../../ttk-paraview/install/lib/cmake/paraview-5.10
 torchPath=`pwd`/../../libtorch/share/cmake/Torch/
-cmake -DCMAKE_INSTALL_PREFIX=../install -DParaView_DIR=$paraviewPath ..
+cmake -DCMAKE_INSTALL_PREFIX=../install -DParaView_DIR=$paraviewPath -DTorch_DIR=$torchPath ..
 make -j4
 make -j4 install
 ```
 
 Stay in the build directory and set the environment variables:
-(replace `3.8` in `python3.8` by your version of python)
+(replace `3.10` in `python3.10` by your version of python)
 
 ```bash
 TTK_PREFIX=`pwd`/../install
