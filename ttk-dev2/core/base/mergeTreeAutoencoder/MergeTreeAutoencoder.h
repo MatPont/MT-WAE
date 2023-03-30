@@ -1,6 +1,6 @@
 /// \ingroup base
 /// \class ttk::MergeTreeAutoencoder
-/// \author Mathieu Pont <mathieu.pont@lip6.fr>
+/// \author XXX <XXX@XXX>
 /// \date 2023.
 ///
 /// This module defines the %MergeTreeAutoencoder class that TODO

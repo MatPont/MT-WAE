@@ -1,6 +1,6 @@
 /// \ingroup vtk
 /// \class ttkMergeTreeAutoencoder
-/// \author Mathieu Pont <mathieu.pont@lip6.fr>
+/// \author XXX <XXX@XXX>
 /// \date 2023.
 ///
 /// \brief TTK VTK-filter that wraps the ttk::MergeTreeAutoencoder module.
