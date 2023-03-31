@@ -17,7 +17,7 @@ sudo apt-get install git
 
 ### Install Paraview
 
-First, go in the root of this repository (`MT-AE`) and run the following commands:
+First, go in the root of this repository and run the following commands:
 (replace the `4` in `make -j4` by the number of available cores on your system)
 
 ```bash
@@ -44,7 +44,7 @@ export PYTHONPATH=$PV_PREFIX/lib/python3.10/site-packages
 
 ### Download Torch
 
-Go in the root of this repository (`MT-AE`) and run the following commands:
+Go in the root of this repository and run the following commands:
 
 ```bash
 wget https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.13.1%2Bcpu.zip
