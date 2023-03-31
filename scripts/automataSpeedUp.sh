@@ -14,8 +14,8 @@ opc=(0 0 1 0 0 0 0 0 0 0 0 0)
 
 bsl=10
 
-if [ $# -lt 1 -o $# -gt 2 ]; then
-  echo "Usage "$0 "numberOfThreads [persistenceThresholdMultiplier]"
+if [ $# -lt 1 -o $# -gt 3 ]; then
+  echo "Usage "$0 "numberOfThreads [persistenceThresholdMultiplier] [saveOutput]"
   exit
 fi
 
@@ -23,6 +23,10 @@ noThreads=$1
 ptMult=$2
 if [[ $ptMult == "" ]]; then
   ptMult=1
+fi
+doSave=$3
+if [[ $ptMult == "" ]]; then
+  doSave=0
 fi
 
 len=`expr ${#names[@]} - 1`
@@ -45,7 +49,7 @@ for nt in $noThreads 1; do
             : ' if [ $nt -eq 1 ]; then
                 dl=5
             fi'
-            command="python3 run.py -td ${names[$i]} -dl $dl -ds 1 -pp dataRed -c 0.0 -lr $lr -nl 0 -iNG 3 -lNG 3 -af 1 -bsl $bsl -lBsl ${lbsl[$i]} -nt $nt -pd $pd -opc ${opc[$i]} -mi $mi -mai ${mai[$i]} -ei $ei -ni ${ni[$i]} -ptMult $ptMult"
+            command="python3 run.py -td ${names[$i]} -dl $dl -ds $doSave -pp dataRed -c 0.0 -lr $lr -nl 0 -iNG 3 -lNG 3 -af 1 -bsl $bsl -lBsl ${lbsl[$i]} -nt $nt -pd $pd -opc ${opc[$i]} -mi $mi -mai ${mai[$i]} -ei $ei -ni ${ni[$i]} -ptMult $ptMult"
             
             outFileName=${names[$i]}_PD_${pd}
             if [ $nt -eq 1 ]; then
@@ -58,9 +62,6 @@ for nt in $noThreads 1; do
             else
                 $command
             fi'
-            
-            exit
         done
     done
 done
-
