@@ -54,7 +54,7 @@ def putDataRedParams(args, pga, isPD, nt):
         "volcanic",
         "astro3D",
         "earthquake",
-        "darkSky4",
+        "darkSky100",
     ]
     lbsl = [10.0, 10.0, 5.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0]
     miMT = [1000, 500, 100, 500, 1500, 500, 500, 500, 500, 100, 500, 500]
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     for i in range(len(paths)):
         if argsParser.doSkip(dirArgs, paths[i]):
             continue
-        if "darkSky100S" in paths[i]:
+        if "darkSky4" in paths[i]:
             continue
 
         print("#" * 80, flush=True)
