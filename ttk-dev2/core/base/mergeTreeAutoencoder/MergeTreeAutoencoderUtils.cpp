@@ -363,7 +363,7 @@ void ttk::createBalancedBDT(
             // END TESTING
             childrenFinalOut[structOrigin].emplace_back(modOrigin);
             std::queue<std::array<ftm::idNode, 2>> queue;
-            queue.emplace(std::array{modOrigin, structOrigin});
+            queue.emplace(std::array<ftm::idNode, 2>{modOrigin, structOrigin});
             // BEGIN TESTING
             ssBug << "- scalars is " << scalarsVectorOut[structOrigin * 2]
                   << " _ " << scalarsVectorOut[structOrigin * 2 + 1] << " ("
@@ -394,7 +394,7 @@ void ttk::createBalancedBDT(
               // END TESTING
               // Push children
               for(auto &child : childrenFinalOut[node])
-                queue.emplace(std::array{child, node});
+                queue.emplace(std::array<ftm::idNode, 2>{child, node});
             }
           }
           return;
