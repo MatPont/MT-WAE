@@ -2,7 +2,7 @@
 
 lrMT=(0.05 0.0025 0.0025 0.1 0.025 0.1 0.001 0.025 0.005 0.01 0.01 0.025)
 lrPD=(0.5 0.1 0.001 0.05 10 100 0.005 0.00025 0.0025 0.005 0.01 0.5)
-names=(starting isabel sea vortex particular cloud astroT impact volcanic astro3D earthquake darkSky)
+names=(starting isabel sea vortex particular cloud astroT impact volcanic astro3D earthquake darkSky100)
 lbsl=(10 10 5 10 10 10 10 10 10 10 10 10)
 miMT=(1000 500 100 500 1500 500 500 500 500 100 500 500)
 miPD=(1000 200 100 500 1000 500 500 500 500 100 500 500)
@@ -56,6 +56,9 @@ for nt in $noThreads 1; do
                 outFileName=${outFileName}_NT_$nt
             fi
             $command | tee $outFileName
+            if [ -f $outFileName ]; then
+                rm $outFileName
+            fi
             
             : 'if [ $nt -eq 1 ]; then
                 $command &
