@@ -82,3 +82,19 @@ tar xvJf data.tar.xz
 ```
 
 #### Table 1
+
+To reproduce the results of the time table in the paper, please go in the `scripts` directory and enter the following commands:
+
+```bash
+for f in *.sh; do chmod u+x $f; done
+```
+
+Run the experiments (it will take a LONG time) and print table:
+(replace N with the number of available cores on your system)
+
+**To decrease computation time** you can set the optionnal parameter `ptMult` to a value greater than 1. It will have the effect to multiply the persistence thresholds by `ptMult` and hence decreasing the computation time (for example, replace `[ptMult]` by `7`, default value is `1`). However, the computation time will not decrease the same way for each dataset since the number of pairs removed si not linearly correlated with the persistence threshold. Moreover, when increasing the persistence threshold, the speedup will be lower. Finally, the hyper-parameters in the scripts are optimized for the default persistence thresholds (when `ptMult` equals 1).
+
+```bash
+./automataSpeedUp.sh N [ptMult]
+python3 compareSpeedUp.py -c 0
+```
