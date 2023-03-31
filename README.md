@@ -91,7 +91,8 @@ To reproduce the results of the time table in the paper, please go in the `scrip
 for f in *.sh; do chmod u+x $f; done
 ```
 
-Run the experiments and print table:
+**Run the experiments and print table:**
+
 (replace `N` with the number of available cores on your system)
 
 **To decrease computation time** you can set the optionnal parameter `ptMult` to a value greater than 1. It will have the effect to multiply the persistence thresholds by `ptMult` and hence decreasing the computation time (for example, replace `[ptMult]` by `7`, default value is `1`). However, the computation time will not decrease the same way for each dataset since the number of pairs removed is not linearly correlated with the persistence threshold. Moreover, when increasing the persistence threshold, the speedup will be lower. Finally, the hyper-parameters in the scripts are optimized for the default persistence thresholds (when `ptMult` equals 1).
@@ -102,7 +103,9 @@ Run the experiments and print table:
 ./automataSpeedUp.sh N [ptMult] [saveOutput]
 ```
 
-**To print the results** you can use the following command: (if you have used the `ptMult` parameter you should pass it to the script with `-ptMult ptMultVal` where `ptMultVal` is the value you used to run the experiments.
+**To print the results** you can use the following command: 
+
+(if you have used the `ptMult` parameter you should pass it to the script with `-ptMult ptMultVal` where `ptMultVal` is the value you used to run the experiments.
 
 It will print the latex table, but if you want a nice formatting in the console you can install `prettytable` (with `pip install prettytable`) and it will also print the formatted table in the console.
 
