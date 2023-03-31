@@ -74,5 +74,5 @@ if __name__ == "__main__":
         print("loss =", loss, flush=True)
         print("time =", time, flush=True)
 
-        if os.path.isfile(tempFileName):
+        if not os.path.isfile(fileName) and os.path.isfile(tempFileName):
             os.rename(tempFileName, fileName)
