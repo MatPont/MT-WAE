@@ -1,5 +1,7 @@
 # MT-AE
 
+Tested on Ubuntu 22.04.2 LTS.
+
 ## Installation Note
 
 ### Install the dependencies
@@ -40,7 +42,7 @@ export LD_LIBRARY_PATH=$PV_PREFIX/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$PV_PREFIX/lib/python3.10/site-packages
 ```
 
-### Install Torch
+### Download Torch
 
 Go in the root of this repository (`MT-AE`) and run the following commands:
 
@@ -70,7 +72,7 @@ Stay in the build directory and set the environment variables:
 TTK_PREFIX=`pwd`/../install
 export PV_PLUGIN_PATH=$TTK_PREFIX/bin/plugins/TopologyToolKit
 export LD_LIBRARY_PATH=$TTK_PREFIX/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$TTK_PREFIX/lib/python3.10/site-packages
+export PYTHONPATH=$PYTHONPATH:$TTK_PREFIX/lib/python3.10/site-packages
 ```
 
 ### Get the results
@@ -89,12 +91,21 @@ To reproduce the results of the time table in the paper, please go in the `scrip
 for f in *.sh; do chmod u+x $f; done
 ```
 
-Run the experiments (it will take a LONG time) and print table:
-(replace N with the number of available cores on your system)
+Run the experiments and print table:
+(replace `N` with the number of available cores on your system)
 
-**To decrease computation time** you can set the optionnal parameter `ptMult` to a value greater than 1. It will have the effect to multiply the persistence thresholds by `ptMult` and hence decreasing the computation time (for example, replace `[ptMult]` by `7`, default value is `1`). However, the computation time will not decrease the same way for each dataset since the number of pairs removed si not linearly correlated with the persistence threshold. Moreover, when increasing the persistence threshold, the speedup will be lower. Finally, the hyper-parameters in the scripts are optimized for the default persistence thresholds (when `ptMult` equals 1).
+**To decrease computation time** you can set the optionnal parameter `ptMult` to a value greater than 1. It will have the effect to multiply the persistence thresholds by `ptMult` and hence decreasing the computation time (for example, replace `[ptMult]` by `7`, default value is `1`). However, the computation time will not decrease the same way for each dataset since the number of pairs removed is not linearly correlated with the persistence threshold. Moreover, when increasing the persistence threshold, the speedup will be lower. Finally, the hyper-parameters in the scripts are optimized for the default persistence thresholds (when `ptMult` equals 1).
+
+**To save output** you can set the optionnal parameter `saveOutput` to 1 (default value is 0), it will saves the output of the algorithm (trees/diagrams at each layer including latent space with their coefficients, origins and vectors of each layer) on the disk. You must pass a value for `ptMult` (default value is 1) if you want to use this option.
 
 ```bash
-./automataSpeedUp.sh N [ptMult]
-python3 compareSpeedUp.py -c 0
+./automataSpeedUp.sh N [ptMult] [saveOutput]
+```
+
+**To print the results** you can use the following command: (if you have used the `ptMult` parameter you should pass it to the script with `-ptMult ptMultVal` where `ptMultVal` is the value you used to run the experiments.
+
+It will print the latex table, but if you want a nice formatting in the console you can install `prettytable` (with `pip install prettytable`) and it will also print the formatted table in the console.
+
+```bash
+python3 compareSpeedUp.py -c 0 [-ptMult ptMultVal]
 ```
