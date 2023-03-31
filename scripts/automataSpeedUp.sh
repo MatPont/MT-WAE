@@ -25,7 +25,7 @@ if [[ $ptMult == "" ]]; then
   ptMult=1
 fi
 doSave=$3
-if [[ $ptMult == "" ]]; then
+if [[ $doSave == "" ]]; then
   doSave=0
 fi
 
