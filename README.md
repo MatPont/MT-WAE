@@ -14,7 +14,7 @@ IEEE Transactions on Visualization and Computer Graphics, 2023.
 
 ## Installation Note
 
-Tested on Ubuntu 22.04.2 LTS.
+Tested on Ubuntu 22.04.3 LTS.
 
 ### Install the dependencies
 
@@ -117,7 +117,7 @@ for f in *.sh; do chmod u+x $f; done
 
 **To print the results** you can use the following command: 
 
-(if you have used the `ptMult` parameter you should pass it to the script with `-ptMult ptMultVal` where `ptMultVal` is the value you used to run the experiments.
+(if you have used the `ptMult` parameter you should pass it to the script with `-ptMult ptMultVal` where `ptMultVal` is the value you used to run the experiments)
 
 It will print the latex table, but if you want a nice formatting in the console you can install `prettytable` (with `pip install prettytable`) and it will also print the formatted table in the console.
 
