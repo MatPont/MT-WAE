@@ -1,8 +1,20 @@
 # MT-WAE
 
-Tested on Ubuntu 22.04.2 LTS.
+This github repository contains the exact code used for the reference below.
+
+## Reference
+
+If you plan to use this code to generate results for a scientific document, thanks for referencing the following publication:
+
+"Wasserstein Auto-Encoders of Merge Trees (and Persistence Diagrams)"  
+Mathieu Pont, Julien Tierny  
+IEEE Transactions on Visualization and Computer Graphics, 2023.  
+
+[Paper](https://arxiv.org/pdf/2307.02509.pdf)
 
 ## Installation Note
+
+Tested on Ubuntu 22.04.2 LTS.
 
 ### Install the dependencies
 
